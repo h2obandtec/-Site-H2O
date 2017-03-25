@@ -8,18 +8,27 @@
     <link href="/assets/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-          <div class="login">
-              <label>Login</label>
-              <asp:TextBox runat="server" placeholder="Digite seu email" />
-              <label>Senha</label>
-              <asp:TextBox runat="server" placeholder="Digite sua senha" />
-              <asp:Button Text="Login" runat="server" />
-              <div class="cadastre">
-                  <a href="/cadastro.aspx">Cadastre-se</a>
-              </div>
-          </div>
-           
-    </form>
+    
+
+    <div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>Welcome back.</h4>
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+            <br />
+            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            <br />
+            <div class="wrapper">
+            <span class="group-btn">     
+                <a href="#" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+            </span>
+            </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
