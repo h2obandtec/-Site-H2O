@@ -1,7 +1,7 @@
 ﻿
 html { 
             
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/imagens/logo.jpeg") no-repeat center center fixed; 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/assets/imagens/logo.jpeg") no-repeat center center fixed; 
             background-size: cover;
             overflow-y: hidden;
         }
@@ -23,8 +23,9 @@ body {
 
 
 .form-login {
-    
-    background: url("../imagens/");
+   
+    background-color:cadetblue;   
+    opacity: 0.8;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -33,10 +34,12 @@ body {
     border-color:#d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
-   
+    padding-bottom: initial;
+    margin-top: 100px;
+    margin-left: 530px;
 }
 
-img.ca-ie {filter: alpha(opacity=65);}
+#foto {filter: alpha(opacity=65);}
 
 h4 { 
  border:0 solid #fff; 
@@ -51,4 +54,12 @@ h4 {
 
 .wrapper {
     text-align: center;
+}
+
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
