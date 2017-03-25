@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-aprendendo git versão1
-=======
-aprendendo git
-
-
-

@@ -1,0 +1,27 @@
+﻿body {
+    font-size:14px;
+    font-family:Arial, sans-serif;
+}
+
+html { 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/imagens/logo.jpeg") no-repeat center center fixed; 
+            background-size: cover;
+            overflow-y: hidden;
+        }.login{
+    margin: 0 auto;
+    padding: 25px 0 0;
+    position: relative;
+    text-align: center;
+    color:#fff;
+    min-width: 280px;
+    font-size:18px;
+    font-family:Arial, sans-serif;
+
+}
+
+a{
+    font-size:18px;
+    text-align: center;
+    color:#fff;
+}
+
