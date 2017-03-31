@@ -13,5 +13,20 @@ namespace WebH2O
         {
 
         }
+
+        protected void ValidarNome(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ValidarEndereço(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Cadastrar(object sender, EventArgs e)
+        {
+
+        }
     }
 }
