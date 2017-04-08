@@ -9,6 +9,8 @@
     
 </head>
 <body>
-    <a href="../cadastro.aspx"><asp:Label Text="Cadastre-se" runat="server" /></a> 
+    
+    <a href="../cadastro.aspx"><asp:Label text="Cadastre-se" runat="server" /></a> 
+        
 </body>
 </html>

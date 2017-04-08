@@ -58,6 +58,15 @@ namespace WebH2O {
         protected global::System.Web.UI.WebControls.TextBox boxRg;
         
         /// <summary>
+        /// errousuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errousuario;
+        
+        /// <summary>
         /// boxLogradouro control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace WebH2O {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox boxLogradouro;
-        
-        /// <summary>
-        /// boxNumero control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox boxNumero;
         
         /// <summary>
         /// boxComplemento control.
@@ -112,6 +112,15 @@ namespace WebH2O {
         protected global::System.Web.UI.WebControls.TextBox boxCidade;
         
         /// <summary>
+        /// erroendereço control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label erroendereço;
+        
+        /// <summary>
         /// boxEmail control.
         /// </summary>
         /// <remarks>
@@ -130,22 +139,13 @@ namespace WebH2O {
         protected global::System.Web.UI.WebControls.TextBox boxConfEmail;
         
         /// <summary>
-        /// infoSenha control.
+        /// boxSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label infoSenha;
-        
-        /// <summary>
-        /// TextBox3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox boxSenha;
         
         /// <summary>
         /// boxConfSenha control.
@@ -155,5 +155,14 @@ namespace WebH2O {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox boxConfSenha;
+        
+        /// <summary>
+        /// erroacesso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label erroacesso;
     }
 }
