@@ -63,53 +63,53 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-sm-4 painel-des" runat="server" id="coluna2">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Endereço</h3>
                         </div>
                         <div class="panel-body">
-    
+
                             <div class="form-group">
                                 <label for="boxID">LOGRADOURO</label>
-                                <asp:TextBox CssClass="form-control" ID="boxLogradouro" runat="server" placeholder="Ex: Alameda das castanheiras" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxLogradouro" runat="server" placeholder="Ex: Alameda das castanheiras" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxNome">NUMERO</label>
-                                <asp:TextBox CssClass="form-control" ID="boxNumero" runat="server" placeholder="Ex: 175" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxNumero" runat="server" placeholder="Ex: 175" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxRg">COMPLEMENTO</label>
-                                <asp:TextBox CssClass="form-control" runat="server" placeholder="Ex: Apartamento 31" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxComplemento" runat="server" placeholder="Ex: Apartamento 31" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxNome">BAIRRO</label>
-                                <asp:TextBox CssClass="form-control" ID="boxBairro" runat="server" placeholder="Ex: Itaquera" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxBairro" runat="server" placeholder="Ex: Itaquera" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxNome">CIDADE</label>
-                                <asp:TextBox CssClass="form-control" ID="boxCidade" runat="server" placeholder="Ex: São Paulo" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxCidade" runat="server" placeholder="Ex: São Paulo" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxCpf">CEP</label>
-                                <asp:TextBox CssClass="form-control" ID="boxCep" runat="server" placeholder="Ex: 08547357" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxCep" runat="server" placeholder="Ex: 08547357" />
                             </div>
-                           
-                            <asp:Button CssClass="btn btn-lg btn-success btn-block" Text="Validar" runat="server" OnClick="ValidarNome" ID="Button1" />
+
+                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" Text="Validar" runat="server" OnClick="ValidarEndereço" ID="Button1" />
 
                             <asp:Panel ID="panelErroEndereco" runat="server" Visible="false" CssClass="alert alert-danger">
                                 <asp:Label ID="erroendereco" Text="" runat="server" />
                             </asp:Panel>
                         </div>
-                        </div>
                     </div>
-                
+                </div>
+
 
                 <div class="col-sm-4 painel-des" runat="server" id="coluna3">
                     <div class="panel panel-default">
@@ -117,28 +117,28 @@
                             <h3 class="panel-title">Dados de Login</h3>
                         </div>
                         <div class="panel-body">
-    
+
                             <div class="form-group">
                                 <label for="boxID">E-MAIL</label>
-                                <asp:TextBox CssClass="form-control" ID="boxEmail" runat="server" placeholder="Ex: usuario@h2o.com" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxEmail" runat="server" placeholder="Ex: usuario@h2o.com" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxNome">CONFIRMAR E-MAIL</label>
-                                <asp:TextBox CssClass="form-control" ID="boxConfEmail" runat="server" placeholder="Ex: usuario@h2o.com" />
+                                <asp:TextBox Enabled="false" CssClass="form-control" ID="boxConfEmail" runat="server" placeholder="Ex: usuario@h2o.com" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxCpf">SENHA</label>
-                                <asp:TextBox CssClass="form-control" ID="boxSenha" runat="server" placeholder="Ex: 14789658954" />
+                                <asp:TextBox TextMode="Password" Enabled="false" CssClass="form-control" ID="boxSenha" runat="server" placeholder="Ex: 14789658954" />
                             </div>
 
                             <div class="form-group">
                                 <label for="boxRg">CONFIRMAR SENHA</label>
-                                <asp:TextBox CssClass="form-control" ID="boxConfSenha" runat="server" placeholder="Ex: 123456" />
+                                <asp:TextBox TextMode="Password" Enabled="false" CssClass="form-control" ID="boxConfSenha" runat="server" placeholder="Ex: 123456" />
                             </div>
 
-                            <asp:Button CssClass="btn btn-lg btn-success btn-block" Text="Validar" runat="server" OnClick="ValidarNome" ID="Button2" />
+                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" Text="Validar" runat="server" OnClick="Cadastrar" ID="Button2" />
 
                             <asp:Panel ID="panelErroInfo" runat="server" Visible="false" CssClass="alert alert-danger">
                                 <asp:Label ID="erroinfo" Text="" runat="server" />
