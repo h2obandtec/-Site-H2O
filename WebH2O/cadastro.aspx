@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>H2O Cadastro</title>
-    <!--<link href="/assets/css/style.css" rel="stylesheet" />-->
+    <link href="/assets/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
     <style type="text/css">
@@ -21,8 +21,8 @@
 
         <nav>
             <div class="menu-logo">
-                <a href="../index.aspx">
-                    <img class="logo" src="/assets/imagens/agua.png" alt="altura" />
+                <a href="../default.aspx">
+                    <img class="logo" src="/assets/imagens/H2O_logo.png" alt="altura" />
                 </a>
             </div>
         </nav>
