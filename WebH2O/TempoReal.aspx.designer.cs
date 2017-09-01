@@ -10,33 +10,24 @@
 namespace WebH2O {
     
     
-    public partial class Produto {
+    public partial class TempoReal {
         
         /// <summary>
-        /// Controle signin.
+        /// Controle form1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm signin;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Controle txtEmail.
+        /// Controle btnLogout.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// Controle txtSenha.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSenha;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

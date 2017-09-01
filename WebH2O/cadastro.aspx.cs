@@ -7,11 +7,48 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Text;
+using Sistema.Utils;
 
 namespace WebH2O
 {
     public partial class cadastro : System.Web.UI.Page
     {
+        public const int TamanhoMaximoDoLogin = 32;
+        public const int TamanhoMaximoDoNome = 32;
+        public const int TamanhoMaximoDoPassword = 20;
+
+        public int Id;
+        public string Login;
+        public string Nome;
+        public string Token;
+
+        public string erroRetorno = string.Empty;
+
+
+        private string EnviarParaCliente()
+        {
+            string value = Id + "|" + Token;
+
+            HttpCookie cookie = new HttpCookie("user", value);
+
+            cookie.Expires = DateTime.UtcNow.AddYears(1);
+
+            HttpContext.Current.Response.SetCookie(cookie);
+
+            return "user=" + value + ";";
+        }
+
+        private void RemoverDoCliente()
+        {
+            HttpCookie cookie = new HttpCookie("user", "");
+
+            cookie.Expires = DateTime.UtcNow.AddYears(-1);
+
+            HttpContext.Current.Response.SetCookie(cookie);
+        }
+
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,7 +62,7 @@ namespace WebH2O
                 panelErroUsuario.Visible = true;
                 return;
             }
-
+            
             else if (boxNome.Text.Length == 0)
             {
                 errousuario.Text = "NOME INVÁLIDO !";
@@ -175,9 +212,9 @@ namespace WebH2O
             {
                 erroinfo.Text = "";
 
-                using (SqlConnection conn = new SqlConnection("Server=tcp:grupoh2o.database.windows.net,1433;Initial Catalog=site;Persist Security Info=False;User ID=grupoh2o;Password=vivianzika12@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+                using (SqlConnection conn = new SqlConnection("Server=tcp:grupoh2o.database.windows.net,1433;Initial Catalog=site;Persist Security Info=False;User ID=grupoh2o;Password=web1234&;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
                 {
-                    conn.Open();
+                  conn.Open();
                     int cod_usuario, cod_dispositivo, cod_cidade, cod_bairro;
 
                     // Cria um comando para inserir um novo registro à tabela
@@ -188,7 +225,7 @@ namespace WebH2O
                         cmd.Parameters.AddWithValue("@email", boxConfEmail.Text);
                         cmd.Parameters.AddWithValue("@cpf", boxCpf.Text);
                         cmd.Parameters.AddWithValue("@rg", boxRg.Text);
-                        cmd.Parameters.AddWithValue("@senha", boxConfSenha.Text);
+                        cmd.Parameters.AddWithValue("@senha", PasswordHash.CreateHash(boxSenha.Text));
 
 
                         cod_usuario = (int)cmd.ExecuteScalar();
@@ -236,43 +273,15 @@ namespace WebH2O
                 }
           
             }
+            
+            clsEnviarEmail cadastro = new clsEnviarEmail();
+            erroRetorno = cadastro.enviarEmail("Alterações realizadas", "Alterações H2O", "gui_tavares2hotmail.com");
 
-
-            //enviando e-mail
-            // Especifica o servidor SMTP e a porta
-            using (System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587))
+            if (erroRetorno != "")
             {
-                try
-                {
-                    // EnableSsl ativa a comunicação segura com o servidor
-                    client.EnableSsl = true;
-
-                    // Especifica a credencial utilizada para envio da mensagem
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = new System.Net.NetworkCredential("h2o.bandtec@gmail.com", "vivianzika");
-
-                    // Especifia o remetente e o destinatário da mensagem
-                    System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage(
-                        new System.Net.Mail.MailAddress("h2o.bandtec@gmail.com", "Grupo H2O", Encoding.UTF8),
-                        new System.Net.Mail.MailAddress(boxEmail.Text));
-                        
-                    // Preenche o corpo e o assunto da mensagem
-                    message.BodyEncoding = Encoding.UTF8;
-                    message.Body = "Seu cadastro no site H2O foi relizado com sucesso !!!";
-                    message.SubjectEncoding = Encoding.UTF8;
-                    message.Subject = "Cadastro H2O !!";
-
-                    // Anexos devem ser adicionados através do método
-                    // message.Attachments.Add()
-
-                    // Envia a mensagem
-                    client.Send(message);
-                }
-                catch (Exception ex)
-                {
-                    // Exceções devem ser tratadas aqui!
-                }
+                
             }
+         
 
             Response.Redirect("default.aspx");
         }

@@ -13,21 +13,30 @@ namespace WebH2O {
     public partial class index {
         
         /// <summary>
-        /// Controle userName.
+        /// Controle signin.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userName;
+        protected global::System.Web.UI.HtmlControls.HtmlForm signin;
         
         /// <summary>
-        /// Controle userPassword.
+        /// Controle txtEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// Controle txtSenha.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSenha;
     }
 }

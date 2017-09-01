@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Relatorios.aspx.cs" Inherits="WebH2O.Relatorios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TempoReal.aspx.cs" Inherits="WebH2O.TempoReal" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="assets/imagens/icone.png" rel="icon" />
+<link href="assets/imagens/icone.png" rel="icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
@@ -13,55 +13,48 @@
             padding-bottom: 10px;
             padding-top: 10px;
             background: #2f2f2f;
-            color: white;
+            color: white
         }
 
     </style>
-    <title>H2O Web - Consumo</title>
+    <title>H2O Web - Consumo Tempo Real</title>
+	 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
 
-    <!-- ********** CHARTS ********** -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(drawStuff);
+      function drawChart() {
 
-        function drawStuff() {
-            var data = new google.visualization.arrayToDataTable([
-                ['Mês', 'Litros'],
-                
-                ["Janeiro", 2],
-                ["Fevereiro", 21],
-                ["Março", 12],
-                ["Abril", 10],
-				['Maio', 3],
-				['Junho', 3],
-            ]);
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Ligado', 80],
+          ['Desligado', 0]
+        ]);
 
-            var options = {
-                title: 'Chess opening moves',
-                width: 900,
-                legend: { position: 'none' },
-                chart: {
-                },
-                bars: 'horizontal', // Required for Material Bar Charts.
-                axes: {
-                    x: {
-                        0: { side: 'top', label: 'Consumo de água' } // Top x-axis.
-                    }
-                },
-                bar: { groupWidth: "90%" }
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-            chart.draw(data, options);
+        var options = {
+          width: 800, height: 480,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5
         };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 13000);
+        setInterval(function() {
+          data.setValue(0);
+          chart.draw(data, options);
+        }, 5000);
+      }
     </script>
-
-
-    <!-- ********** /CHARTS ********** -->
 </head>
 <body>
-    <form id="form1" runat="server">
+     <form id="form1" runat="server">
         <!-- ********** HEADER ********** -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -79,12 +72,12 @@
 
 
                 <div class="navbar-form navbar-collapse" id="bs-example-navbar-collapse-1">
-                   <ul class="nav navbar-nav">
-                        <li class="active"><a href="Relatorios.aspx">Relatório</a></li>
-						<li><a href="TempoReal.aspx">Tempo Real</a></li>
+                    <ul class="nav navbar-nav">
+                        <li><a href="Relatorios.aspx">Relatório</a></li>
+						<li class="active"><a href="TempoReal.aspx">Tempo Real</a></li>
                     </ul>
 					<ul class="nav navbar-right" >
-						<asp:Button ID="btnLogout" Text="Logout" CssClass="btn btn-default" OnClick="btnLogout_Click" runat="server" />
+						 <asp:Button ID="btnLogout" Text="Logout" CssClass="btn btn-default" OnClick="btnLogout_Click" runat="server" />
 					</ul>
                     
                 </div>
@@ -93,7 +86,7 @@
         <!-- ********** /HEADER ********** -->
 
         <!-- ********** CHARTS ********** -->
-        <div id="top_x_div" style="width: 900px; height: 500px; margin-left: 10%"></div>
+        <div id="chart_div" style="width: 100%; height: 100%; margin-left: 20%; margin-bottom: 2.5%"></div>
         <!-- ********** /CHARTS ********** -->
 
     </form>
