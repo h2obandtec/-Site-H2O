@@ -9,6 +9,7 @@ using System.Data;
 using System.Text;
 using Sistema.Utils;
 
+
 namespace WebH2O
 {
     public partial class cadastro : System.Web.UI.Page
@@ -24,15 +25,19 @@ namespace WebH2O
 
         public string erroRetorno = string.Empty;
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private string EnviarParaCliente()
         {
             string value = Id + "|" + Token;
 
-            HttpCookie cookie = new HttpCookie("user", value);
-
-            cookie.Expires = DateTime.UtcNow.AddYears(1);
-
+            HttpCookie cookie = new HttpCookie("user", value)
+            {
+                Expires = DateTime.UtcNow.AddYears(1)
+            };
             HttpContext.Current.Response.SetCookie(cookie);
 
             return "user=" + value + ";";
@@ -45,24 +50,21 @@ namespace WebH2O
             cookie.Expires = DateTime.UtcNow.AddYears(-1);
 
             HttpContext.Current.Response.SetCookie(cookie);
-        }
+        }    
 
-       
-
-        protected void Page_Load(object sender, EventArgs e)
+        public void ValidarCampos()
         {
+            
 
-        }
+            //Nome
 
-        protected void ValidarNome(object sender, EventArgs e)
-        {
             if (boxID.Text.Length < 6)
             {
                 errousuario.Text = "ID INVÁLIDO !";
                 panelErroUsuario.Visible = true;
                 return;
             }
-            
+
             else if (boxNome.Text.Length == 0)
             {
                 errousuario.Text = "NOME INVÁLIDO !";
@@ -84,34 +86,8 @@ namespace WebH2O
                 return;
             }
 
-            else
-            {
+            //Endereço
 
-                coluna1.Attributes["class"] = "col-sm-4 painel-des";
-                coluna2.Attributes["class"] = "col-sm-4";
-                errousuario.Text = "";
-
-                panelErroUsuario.Visible = false;
-
-                boxLogradouro.Enabled = true;
-                boxNumero.Enabled = true;
-                boxCidade.Enabled = true;
-                boxBairro.Enabled = true;
-                boxCep.Enabled = true;
-                boxComplemento.Enabled = true;
-                Button1.Enabled = true;
-
-                boxNome.Enabled = false;
-                boxID.Enabled = false;
-                boxCpf.Enabled = false;
-                boxRg.Enabled = false;
-                btnPasso1.Enabled = false;
-
-            }
-        }
-
-        protected void ValidarEndereço(object sender, EventArgs e)
-        {
             if (boxLogradouro.Text.Length == 0)
             {
                 erroendereco.Text = "Logradouro Inválido";
@@ -147,30 +123,8 @@ namespace WebH2O
                 return;
             }
 
-            else
-            {
-                coluna2.Attributes["class"] = "col-sm-4 painel-des";
-                coluna3.Attributes["class"] = "col-sm-4";
-                errousuario.Text = "";
+            //E-mail
 
-                boxLogradouro.Enabled = false;
-                boxNumero.Enabled = false;
-                boxCidade.Enabled = false;
-                boxBairro.Enabled = false;
-                boxCep.Enabled = false;
-                boxComplemento.Enabled = false;
-                Button1.Enabled = false;
-
-                boxEmail.Enabled = true;
-                boxConfEmail.Enabled = true;
-                boxSenha.Enabled = true;
-                boxConfSenha.Enabled = true;
-                Button2.Enabled = true;
-            }
-        }
-
-        protected void Cadastrar(object sender, EventArgs e)
-        {
             string email = boxEmail.Text.Trim();
             int arroba, arroba2, ponto;
 
@@ -208,82 +162,9 @@ namespace WebH2O
                 return;
             }
 
-            else
-            {
-                erroinfo.Text = "";
-
-                using (SqlConnection conn = new SqlConnection("Server=tcp:grupoh2o.database.windows.net,1433;Initial Catalog=site;Persist Security Info=False;User ID=grupoh2o;Password=web1234&;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-                {
-                  conn.Open();
-                    int cod_usuario, cod_dispositivo, cod_cidade, cod_bairro;
-
-                    // Cria um comando para inserir um novo registro à tabela
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO USUARIO (NOME, EMAIL, CPF, RG, SENHA) OUTPUT INSERTED.COD_USUARIO VALUES (@nome, @email, @cpf, @rg, @senha)", conn))
-                    {
-                        // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                        cmd.Parameters.AddWithValue("@nome", boxNome.Text);
-                        cmd.Parameters.AddWithValue("@email", boxConfEmail.Text);
-                        cmd.Parameters.AddWithValue("@cpf", boxCpf.Text);
-                        cmd.Parameters.AddWithValue("@rg", boxRg.Text);
-                        cmd.Parameters.AddWithValue("@senha", PasswordHash.CreateHash(boxSenha.Text));
-
-
-                        cod_usuario = (int)cmd.ExecuteScalar();
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO DISPOSITIVO (ID, COD_USUARIO) OUTPUT INSERTED.COD_DISPOSITIVO VALUES (@id, @cod_usuario)", conn))
-                    {
-                        // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                        cmd.Parameters.AddWithValue("@id", boxID.Text);
-                        cmd.Parameters.AddWithValue("@cod_usuario", cod_usuario);
-
-                        cod_dispositivo = (int)cmd.ExecuteScalar();
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO CIDADE (NOME) OUTPUT INSERTED.COD_CIDADE VALUES (@nome)", conn))
-                    {
-                        // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                        cmd.Parameters.AddWithValue("@nome", boxCidade.Text);
-
-                        cod_cidade = (int)cmd.ExecuteScalar();
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO BAIRRO (NOME, COD_CIDADE) OUTPUT INSERTED.COD_BAIRRO VALUES (@nome, @cod_cidade)", conn))
-                    {
-                        // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                        cmd.Parameters.AddWithValue("@nome", boxBairro.Text);
-                        cmd.Parameters.AddWithValue("@cod_cidade", cod_cidade);
-
-                        cod_bairro = (int)cmd.ExecuteScalar();
-                    }
-
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ENDERECO (LOGRADOURO, NUMERO, CEP, COMPLEMENTO, COD_BAIRRO, COD_USUARIO) VALUES (@logradouro, @numero, @cep, @complemento, @cod_bairro, @cod_usuario)", conn))
-                    {
-                        // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                        cmd.Parameters.AddWithValue("@logradouro", boxLogradouro.Text);
-                        cmd.Parameters.AddWithValue("@numero", boxNumero.Text);
-                        cmd.Parameters.AddWithValue("@cep", boxCep.Text);
-                        cmd.Parameters.AddWithValue("@complemento", boxComplemento.Text);
-                        cmd.Parameters.AddWithValue("@cod_bairro", cod_bairro);
-                        cmd.Parameters.AddWithValue("@cod_usuario", cod_usuario);
-
-                        cmd.ExecuteNonQuery();
-                    }
-          
-                }
-          
-            }
-            
-            clsEnviarEmail cadastro = new clsEnviarEmail();
-            erroRetorno = cadastro.enviarEmail("Alterações realizadas", "Alterações H2O", "gui_tavares2hotmail.com");
-
-            if (erroRetorno != "")
-            {
-                
-            }
-         
-
-            Response.Redirect("default.aspx");
         }
+
+   
+
     }
 }

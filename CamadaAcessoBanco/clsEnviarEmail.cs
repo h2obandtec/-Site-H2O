@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Data;
 using System.Text;
-using Sistema.Utils;
-namespace WebH2O
+
+
+namespace CamadaAcessoBanco
 {
-    public class clsEnviarEmail : System.Web.UI.Page
+    public class clsEnviarEmail 
     {
         private string corpoEMail { get; set; }
         private string assuntoEmail { get; set; }

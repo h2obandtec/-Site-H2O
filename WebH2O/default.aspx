@@ -6,12 +6,12 @@
 <head runat="server">
     <link href="assets/imagens/icone.png" rel="icon" />
     <title>H2O Web</title>
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
     <style>
         #background_h2o {
-            background-image: url('/assets/imagens/logo.jpeg');
+            background-image: url('assets/imagens/logo.jpeg');
             padding-top: 250px;
             background-attachment: relative;
             background-position: center center;
