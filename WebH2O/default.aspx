@@ -9,53 +9,6 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
-    <style>
-        #background_h2o {
-            background-image: url('assets/imagens/logo.jpeg');
-            padding-top: 250px;
-            background-attachment: relative;
-            background-position: center center;
-            min-height: 700px;
-            width: 100%;
-            -webkit-background-size: 100%;
-            -moz-background-size: 100%;
-            -o-background-size: 100%;
-            background-size: 100%;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        #section-semestre1, #section-semestre2, #section-semestre3 {
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-
-        #section-semestre2 {
-            background-color: #87CEEB;
-        }
-
-        body {
-            font-family: 'Lobster', cursive;
-        }
-
-        p {
-            font-size: 110%;
-            text-align: justify;
-        }
-
-        h1 {
-            color: #8b2500;
-        }
-
-        #rodape {
-            padding-bottom: 10px;
-            padding-top: 10px;
-            background: #2f2f2f;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 

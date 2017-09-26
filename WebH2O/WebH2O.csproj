@@ -66,32 +66,30 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\css\style.css" />
     <Content Include="assets\imagens\arduino.jpeg" />
+    <Content Include="assets\imagens\fritzing.png" />
+    <Content Include="assets\imagens\Gui.jpeg" />
     <Content Include="assets\imagens\H2O_logo.png" />
     <Content Include="assets\imagens\icone.png" />
-    <Content Include="assets\imagens\logo.jpeg" />
+    <Content Include="assets\imagens\King.jpeg" />
+    <Content Include="assets\imagens\logo.png" />
     <Content Include="assets\imagens\logo_bandtec.png" />
     <Content Include="assets\imagens\sitenotebook.jpeg" />
     <Content Include="assets\imagens\smartphone.png" />
-    <Content Include="cadastro.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="css\bootstrap-theme.min.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="default.aspx" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="js\npm.js" />
+    <Content Include="assets\css\bootstrap-theme.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\imagens\Vivian.jpeg" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\npm.js" />
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="css\bootstrap-theme.min.css.map" />
-    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="assets\css\bootstrap-theme.min.css.map" />
+    <Content Include="assets\css\bootstrap.min.css.map" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,6 +98,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\imagens\logo.jpeg" />
+    <Content Include="cadastro.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="default.aspx" />
     <Content Include="Produto.aspx" />
     <Content Include="Relatorios.aspx" />
     <Content Include="TempoReal.aspx" />
@@ -113,15 +116,18 @@
     <Compile Include="cadastro.aspx.designer.cs">
       <DependentUpon>cadastro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="clsEnviarEmail.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hash.cs" />
     <Compile Include="Produto.aspx.cs">
@@ -150,6 +156,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

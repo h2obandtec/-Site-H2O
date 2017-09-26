@@ -5,30 +5,12 @@ namespace CamadaAcessoBanco
 {
     public class BancoDeDados
     {
-        public string Nome { get; set; }
-        public string Email { get; set; }
-        public string CPF { get; set; }
-        public string RG { get; set; }
-        public string Senha { get; set; }
-
-        public string ID { get; set; }
-        public string Cidade { get; set; }
-        public string Bairro { get; set; }
-
-        public string Logradouro { get; set; }
-        public string Numero { get; set; }
-        public string CEP { get; set; }
-        public string Complemento { get; set; }
-
-        EnviarEmail _enviarEmail;
-
         public void Cadastrar()
         {
             // erroinfo.Text = "";
 
             using (SqlConnection conn = new SqlConnection("Server=tcp:grupoh2o.database.windows.net,1433;Initial Catalog=site;Persist Security Info=False;User ID=grupoh2o;Password=web1234&;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
-                
                 conn.Open();
                 int cod_usuario, cod_dispositivo, cod_cidade, cod_bairro;
 
@@ -36,11 +18,11 @@ namespace CamadaAcessoBanco
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO USUARIO (NOME, EMAIL, CPF, RG, SENHA) OUTPUT INSERTED.COD_USUARIO VALUES (@nome, @email, @cpf, @rg, @senha)", conn))
                 {
                     // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                    cmd.Parameters.AddWithValue("@nome", Nome);
-                    cmd.Parameters.AddWithValue("@email", Email);
-                    cmd.Parameters.AddWithValue("@cpf", CPF);
-                    cmd.Parameters.AddWithValue("@rg", RG);
-                    cmd.Parameters.AddWithValue("@senha", Senha);
+                    cmd.Parameters.AddWithValue("@nome", boxNome.Text);
+                    cmd.Parameters.AddWithValue("@email", boxConfEmail.Text);
+                    cmd.Parameters.AddWithValue("@cpf", boxCpf.Text);
+                    cmd.Parameters.AddWithValue("@rg", boxRg.Text);
+                    cmd.Parameters.AddWithValue("@senha", PasswordHash.CreateHash(boxSenha.Text));
 
 
                     cod_usuario = (int)cmd.ExecuteScalar();
@@ -49,7 +31,7 @@ namespace CamadaAcessoBanco
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO DISPOSITIVO (ID, COD_USUARIO) OUTPUT INSERTED.COD_DISPOSITIVO VALUES (@id, @cod_usuario)", conn))
                 {
                     // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                    cmd.Parameters.AddWithValue("@id", ID);
+                    cmd.Parameters.AddWithValue("@id", boxID.Text);
                     cmd.Parameters.AddWithValue("@cod_usuario", cod_usuario);
 
                     cod_dispositivo = (int)cmd.ExecuteScalar();
@@ -58,7 +40,7 @@ namespace CamadaAcessoBanco
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO CIDADE (NOME) OUTPUT INSERTED.COD_CIDADE VALUES (@nome)", conn))
                 {
                     // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                    cmd.Parameters.AddWithValue("@nome", Cidade);
+                    cmd.Parameters.AddWithValue("@nome", boxCidade.Text);
 
                     cod_cidade = (int)cmd.ExecuteScalar();
                 }
@@ -66,7 +48,7 @@ namespace CamadaAcessoBanco
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO BAIRRO (NOME, COD_CIDADE) OUTPUT INSERTED.COD_BAIRRO VALUES (@nome, @cod_cidade)", conn))
                 {
                     // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                    cmd.Parameters.AddWithValue("@nome", Bairro);
+                    cmd.Parameters.AddWithValue("@nome", boxBairro.Text);
                     cmd.Parameters.AddWithValue("@cod_cidade", cod_cidade);
 
                     cod_bairro = (int)cmd.ExecuteScalar();
@@ -75,10 +57,10 @@ namespace CamadaAcessoBanco
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO ENDERECO (LOGRADOURO, NUMERO, CEP, COMPLEMENTO, COD_BAIRRO, COD_USUARIO) VALUES (@logradouro, @numero, @cep, @complemento, @cod_bairro, @cod_usuario)", conn))
                 {
                     // Esses valores poderiam vir de qualquer outro lugar, como uma TextBox...
-                    cmd.Parameters.AddWithValue("@logradouro", Logradouro);
-                    cmd.Parameters.AddWithValue("@numero", Numero);
-                    cmd.Parameters.AddWithValue("@cep", CEP);
-                    cmd.Parameters.AddWithValue("@complemento", Complemento);
+                    cmd.Parameters.AddWithValue("@logradouro", boxLogradouro.Text);
+                    cmd.Parameters.AddWithValue("@numero", boxNumero.Text);
+                    cmd.Parameters.AddWithValue("@cep", boxCep.Text);
+                    cmd.Parameters.AddWithValue("@complemento", boxComplemento.Text);
                     cmd.Parameters.AddWithValue("@cod_bairro", cod_bairro);
                     cmd.Parameters.AddWithValue("@cod_usuario", cod_usuario);
 
@@ -86,20 +68,21 @@ namespace CamadaAcessoBanco
                 }
             }
 
-            _enviarEmail = new EnviarEmail();
-            _enviarEmail.enviarEmail("Cadastro realizado com sucesso !", "Cadastro H2O.", Email);
+            clsEnviarEmail cadastro = new clsEnviarEmail();
+            erroRetorno = cadastro.enviarEmail("Alterações realizadas", "Alterações H2O", "gui_tavares2hotmail.com");
+
+            if (erroRetorno != "")
+            {
+
+            }
+
+
+            //Response.Redirect("default.aspx");
+
+
 
         }
 
-        public string Alterar()
-        {
-            return "";
-        }
-
-        public string Excluir()
-        {
-            return "";
-        }
 
     }
 }

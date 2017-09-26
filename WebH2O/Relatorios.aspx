@@ -6,7 +6,8 @@
 <head runat="server">
     <link href="assets/imagens/icone.png" rel="icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
 
     <style>
         #rodape {
@@ -63,33 +64,36 @@
 <body>
     <form id="form1" runat="server">
         <!-- ********** HEADER ********** -->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
+         <nav class="navbar navbar-default navbar-fixed-top"">
+        <div class="container-fluid">
 
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="default.aspx">
-                        <img src="assets/imagens/H2O_logo.png" alt="Logo H2O" width="90" /></a>
-                </div>
-
-
-                <div class="navbar-form navbar-collapse" id="bs-example-navbar-collapse-1">
-                   <ul class="nav navbar-nav">
-                        <li class="active"><a href="Relatorios.aspx">Relatório</a></li>
-						<li><a href="TempoReal.aspx">Tempo Real</a></li>
-                    </ul>
-					<ul class="nav navbar-right" >
-						<asp:Button ID="btnLogout" Text="Logout" CssClass="btn btn-default" OnClick="btnLogout_Click" runat="server" />
-					</ul>
-                    
-                </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="assets/imagens/H2O_logo.png" alt="Logo H2O" width="90" />
             </div>
-        </nav>
+
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="cadastro.aspx">Cadastre-se</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="produto.aspx">Produto</a></li>
+                    <li><a href="#team">Nosso time</a></li>
+
+                </ul>
+                <div id="signin" class="navbar-form navbar-right" role="form" runat="server">
+                    
+                    <asp:Button Text="Login" CssClass="btn btn-primary" runat="server" /> 
+                </div> 
+
+            </div>
+        </div>
+    </nav>
         <!-- ********** /HEADER ********** -->
 
         <!-- ********** CHARTS ********** -->

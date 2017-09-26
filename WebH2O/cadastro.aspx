@@ -8,8 +8,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>H2O Cadastro</title>
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 
     <style type="text/css">
         .painel-des {
@@ -202,8 +202,8 @@
         }
     </script>
 
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 
 </body>
 </html>
