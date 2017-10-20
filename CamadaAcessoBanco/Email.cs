@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.Data.SqlClient;
+using System.Data;
+
 
 namespace CamadaAcessoBanco
 {
@@ -64,8 +68,8 @@ namespace CamadaAcessoBanco
                     client.Send(message);
                 }
                 catch (Exception ex)
-                {
-                    // Exceções devem ser tratadas aqui!
+                { 
+                   return ex.Message;
                 }
 
             }

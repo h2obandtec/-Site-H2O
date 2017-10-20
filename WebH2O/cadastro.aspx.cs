@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Text;
 using Sistema.Utils;
+using WebH2O;
 
 namespace WebH2O
 {
@@ -23,7 +24,7 @@ namespace WebH2O
         public string Token;
 
         public string erroRetorno = string.Empty;
-
+        Email email = new Email();
 
         private string EnviarParaCliente()
         {
@@ -171,8 +172,7 @@ namespace WebH2O
 
        
             
-            clsEnviarEmail Cadastro = new clsEnviarEmail();
-            erroRetorno = cadastro.enviarEmail("", "Alterações H2O", "gui_tavares2hotmail.com");
+
 
             if (erroRetorno != "")
             {

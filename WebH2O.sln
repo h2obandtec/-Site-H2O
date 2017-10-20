@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebH2O", "WebH2O\WebH2O.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamadaAcessoBanco", "CamadaAcessoBanco\CamadaAcessoBanco.csproj", "{07D98D4C-505E-499E-AD07-F3DA0D704DF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTeste", "MVCTeste\MVCTeste.csproj", "{B3402683-BBF2-4F10-9248-47C100E944B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTeste.Tests", "MVCTeste.Tests\MVCTeste.Tests.csproj", "{8BDCCB36-2ED2-4176-BD3C-F9DBFA671CF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{07D98D4C-505E-499E-AD07-F3DA0D704DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07D98D4C-505E-499E-AD07-F3DA0D704DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07D98D4C-505E-499E-AD07-F3DA0D704DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3402683-BBF2-4F10-9248-47C100E944B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3402683-BBF2-4F10-9248-47C100E944B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3402683-BBF2-4F10-9248-47C100E944B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3402683-BBF2-4F10-9248-47C100E944B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDCCB36-2ED2-4176-BD3C-F9DBFA671CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDCCB36-2ED2-4176-BD3C-F9DBFA671CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDCCB36-2ED2-4176-BD3C-F9DBFA671CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDCCB36-2ED2-4176-BD3C-F9DBFA671CF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

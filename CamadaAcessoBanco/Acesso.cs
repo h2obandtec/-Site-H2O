@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using CamadaAcessoBanco;
 
 namespace CamadaAcessoBanco
 {
@@ -20,7 +21,7 @@ namespace CamadaAcessoBanco
         public string CEP { get; set; }
         public string Complemento { get; set; }
 
-        EnviarEmail _enviarEmail;
+        Email _enviarEmail;
 
         public void Cadastrar()
         {
@@ -86,7 +87,7 @@ namespace CamadaAcessoBanco
                 }
             }
 
-            _enviarEmail = new EnviarEmail();
+            _enviarEmail = new Email();
             _enviarEmail.enviarEmail("Cadastro realizado com sucesso !", "Cadastro H2O.", Email);
 
         }
