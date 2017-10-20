@@ -100,9 +100,9 @@
   <ItemGroup>
     <Content Include="assets\css\style.css" />
     <Content Include="assets\imagens\logo.jpeg" />
-    <Content Include="cadastro.aspx" />
+    <Content Include="Cadastro.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="default.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Produto.aspx" />
     <Content Include="Relatorios.aspx" />
     <Content Include="TempoReal.aspx" />
@@ -110,24 +110,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cadastro.aspx.cs">
-      <DependentUpon>cadastro.aspx</DependentUpon>
+      <DependentUpon>Cadastro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="cadastro.aspx.designer.cs">
-      <DependentUpon>cadastro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="clsEnviarEmail.cs">
-      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hash.cs" />
     <Compile Include="Produto.aspx.cs">
@@ -182,6 +179,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

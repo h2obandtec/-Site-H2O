@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CamadaAcessoBanco
 {
-    public class EnviarEmail
+    public class Email
     {
         private string corpoEMail { get; set; }
         private string assuntoEmail { get; set; }
