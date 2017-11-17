@@ -1,0 +1,11 @@
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\bin\Debug\netcoreapp2.0\H2OMVC.deps.json
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\bin\Debug\netcoreapp2.0\H2OMVC.runtimeconfig.json
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\bin\Debug\netcoreapp2.0\H2OMVC.runtimeconfig.dev.json
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\bin\Debug\netcoreapp2.0\H2OMVC.dll
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\bin\Debug\netcoreapp2.0\H2OMVC.pdb
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\obj\Debug\netcoreapp2.0\H2OMVC.csprojResolveAssemblyReference.cache
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\obj\Debug\netcoreapp2.0\H2OMVC.csproj.CoreCompileInputs.cache
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\obj\Debug\netcoreapp2.0\H2OMVC.AssemblyInfoInputs.cache
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\obj\Debug\netcoreapp2.0\H2OMVC.AssemblyInfo.cs
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\obj\Debug\netcoreapp2.0\H2OMVC.dll
+C:\Users\gui_t\Documents\H2OMVC\H2OMVC\obj\Debug\netcoreapp2.0\H2OMVC.pdb
